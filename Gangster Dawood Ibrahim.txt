@@ -1,0 +1,40 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    
+    int div;
+    cin>>div;
+    while(div)
+    {
+        int n;
+        cin>>n;
+        int d[n];
+        for(int i=0;i<n;i++)
+            cin>>d[i];
+        int mini=*max_element(d,d+n);
+        int street=d[0];
+        
+        for(int i=0;i<n;i++)
+        {
+            int cost=0;
+            for(int j=0;j<n;j++)
+                cost+=abs(d[i]-d[j]);
+            if(cost<=mini)
+            {
+                if(cost == mini && street<d[i])
+                    continue;
+                mini=cost;
+                street=d[i];
+            }
+        }
+        cout<<street<<endl;
+        div--;
+    }
+    return 0;
+}
