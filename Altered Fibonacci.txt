@@ -1,0 +1,32 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() 
+{
+    int t,i;
+    cin>>t;
+    for(i=0;i<t;i++)
+    {
+        int a,b,sum=0,z;
+        cin>>a>>b;
+        
+        while(b != 0)
+        {
+             z = b;
+            b=a-b;
+            b = abs(b);
+            a=z;
+            sum=sum+1;
+            
+            
+        }
+        cout<<sum<<endl;
+    }
+    
+    return 0;
+}
